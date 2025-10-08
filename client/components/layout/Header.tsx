@@ -104,75 +104,76 @@ return (
   </div>
 
   {/* MENU MOBILE — Plein écran, fond opaque, header sticky, cartes, CTA bas */}
-  {open && (
+{open && (
+  <div
+    className="fixed inset-0 z-50 bg-background text-foreground"
+    role="dialog"
+    aria-modal="true"
+    onClick={() => setOpen(false)}
+  >
     <div
-      className="bg-background text-foreground"
-      role="dialog"
-      aria-modal="true"
-      onClick={() => setOpen(false)}
+      className="absolute inset-0 h-screen flex flex-col bg-background"
+      onClick={(e) => e.stopPropagation()}
     >
-      <div
-        className="mx-auto h-full w-full max-w-sm flex flex-col"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Header sticky */}
-        <div className="sticky top-0 bg-background border-b px-4 py-4 flex items-center justify-between">
-          <div className="font-heading font-bold">Menu</div>
-          <button
-            aria-label="Fermer"
+      {/* Barre du haut */}
+      <div className="sticky top-0 z-10 bg-background border-b px-4 py-4 flex items-center justify-between">
+        <div className="font-heading font-bold">Menu</div>
+        <button
+          aria-label="Fermer"
+          onClick={() => setOpen(false)}
+          className="inline-flex h-9 w-9 items-center justify-center rounded-md border bg-background"
+        >
+          <X size={18} />
+        </button>
+      </div>
+
+      {/* ✅ Contenu scrollable */}
+      <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
+        {nav.map((n) => (
+          <Link
+            key={n.to}
+            to={n.to}
             onClick={() => setOpen(false)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border bg-background"
+            className={`block rounded-lg border px-4 py-3 ${
+              location.pathname === n.to
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-background hover:bg-accent"
+            }`}
           >
-            <X size={18} />
+            {n.label}
+          </Link>
+        ))}
+      </div>
+
+      {/* Barre d'action en bas */}
+      <div className="sticky bottom-0 z-10 bg-background border-t px-4 py-3">
+        <div className="flex items-center gap-3">
+          <button
+            aria-label="Basculer le thème"
+            onClick={() =>
+              setDark((d) => {
+                const next = !d;
+                document.documentElement.classList.toggle("dark", next);
+                return next;
+              })
+            }
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border bg-background hover:bg-accent"
+          >
+            {dark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-        </div>
-
-        {/* Contenu scrollable */}
-        <div className="px-4 py-3 space-y-3">
-          {nav.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              onClick={() => setOpen(false)}
-              className={`block rounded-lg border px-4 py-3 ${
-                location.pathname === n.to
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-background hover:bg-accent"
-              }`}
-            >
-              {n.label}
-            </Link>
-          ))}
-        </div>
-
-        {/* Barre d’actions en bas */}
-        <div className="mt-auto sticky bottom-0 bg-background border-t px-4 py-3">
-          <div className="flex items-center gap-3">
-            <button
-              aria-label="Basculer le thème"
-              onClick={() =>
-                setDark((d) => {
-                  const next = !d;
-                  document.documentElement.classList.toggle("dark", next);
-                  return next;
-                })
-              }
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border bg-background hover:bg-accent"
-            >
-              {dark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-            <Link
-              to="/devis"
-              onClick={() => setOpen(false)}
-              className="inline-flex flex-1 justify-center px-4 py-3 rounded-md bg-primary text-primary-foreground font-display font-semibold"
-            >
-              Demander un devis
-            </Link>
-          </div>
+          <Link
+            to="/devis"
+            onClick={() => setOpen(false)}
+            className="inline-flex flex-1 justify-center px-4 py-3 rounded-md bg-primary text-primary-foreground font-display font-semibold"
+          >
+            Demander un devis
+          </Link>
         </div>
       </div>
     </div>
-  )}
+  </div>
+)}
+
 </header>
 );
 }

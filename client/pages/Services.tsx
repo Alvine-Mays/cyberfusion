@@ -8,31 +8,31 @@ export default function Services() {
       title: "Développement Web",
       desc: "Sites et applications web modernes, performants et sécurisés.",
       details: "Conception sur mesure : sites vitrines, e‑commerce, portails, intranets et dashboards. SEO, performances, accessibilité, hébergement, analytics et maintenance.",
-      img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop",
+      img: "/dev-web.jpg",
     },
     {
       title: "Développement Mobile",
       desc: "Apps iOS & Android réactives, rapides et robustes.",
       details: "React Native/Flutter, publication stores, CI/CD, crash reporting, analytics, offline‑first et push notifications.",
-      img: "https://images.unsplash.com/photo-1542393545-10f5cde2c810?q=80&w=1200&auto=format&fit=crop",
+      img: "/mobile.jpg",
     },
     {
       title: "Conseil & Audit Digital",
       desc: "Diagnostic 360°, stratégie digitale et optimisation.",
       details: "Audit technique et UX, cartographie des risques, feuille de route priorisée, accompagnement à la transformation.",
-      img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
+      img: "/audit.jpg",
     },
     {
       title: "Formation & Coaching",
       desc: "Programmes pratiques orientés résultats.",
       details: "Formations en présentiel et à distance : programmation, design, DevOps & Cloud, marketing digital, SEO. Tarifs en XAF avec remises possibles.",
-      img: "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop",
+      img: "/formation2.jpg",
     },
     {
       title: "Maintenance & Support",
       desc: "Supervision, SLOs, sécurité et évolutions continues.",
       details: "Contrats de service, sécurité applicative, sauvegardes, mises à jour, monitoring et support prioritaire.",
-      img: "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop",
+      img: "/maintenance.jpg",
     },
   ]), []);
 

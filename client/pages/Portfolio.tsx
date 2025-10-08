@@ -125,55 +125,85 @@ export default function Portfolio() {
 
       {/* ✅ Partenaires - Ticker animé */}
       <section className="mt-12">
-        <h2 className="font-heading text-2xl font-bold">Partenaires</h2>
+  <h2 className="font-heading text-2xl font-bold">Partenaires</h2>
 
-        <div className="mt-6 overflow-hidden relative w-full">
-          <div className="marquee">
-            <div className="marquee-content" ref={marqueeRef}>
-              {displayedPartners.map((p, idx) => (
-                <a
-                  key={`${p.id}-${idx}`}
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 opacity-80 hover:opacity-100 transition"
-                  aria-label={`Aller sur ${p.title}`}
-                  title={p.title}
-                >
-                  <img
-                    src={p.logo}
-                    alt={p.title}
-                    className="h-10 md:h-12 w-auto rounded-md"
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+  <div className="mt-6 overflow-hidden relative w-full">
+    <div className="partner-marquee">
+      <div className="partner-track">
+        {partners.slice(0, 4).map((p) => (
+          <a
+            key={p.id}
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="partner-item"
+            aria-label={`Aller sur ${p.title}`}
+            title={p.title}
+          >
+            <img
+              src={p.logo}
+              alt={p.title}
+              className="h-12 w-auto rounded-lg object-contain shadow-md"
+            />
+          </a>
+        ))}
+      </div>
 
-        {/* ✅ Styles pour le ticker */}
-        <style>{`
-          .marquee {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-          }
+      <div className="partner-track">
+        {partners.slice(0, 4).map((p) => (
+          <a
+            key={p.id + "-dup"}
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="partner-item"
+            aria-label={`Aller sur ${p.title}`}
+            title={p.title}
+          >
+            <img
+              src={p.logo}
+              alt={p.title}
+              className="h-12 w-auto rounded-lg object-contain shadow-md"
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
 
-          .marquee-content {
-            display: flex;
-            animation: scroll-marquee 30s linear infinite;
-          }
+  {/* Styles CSS inline */}
+  <style>{`
+    .partner-marquee {
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
 
-          @keyframes scroll-marquee {
-            0% {
-              transform: translateX(0%);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-        `}</style>
-      </section>
+    .partner-track {
+      display: flex;
+      animation: scroll 10s linear infinite;
+    }
+
+    .partner-item {
+      flex-shrink: 0;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  `}</style>
+</section>
+
     </div>
   );
 }
