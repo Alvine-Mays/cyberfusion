@@ -66,7 +66,7 @@ export default function Devis() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-[#0D1B2A] via-background to-background dark:from-[#0D1B2A]">
+    <div>
       <div className="container py-14">
         <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="font-heading text-3xl md:text-4xl font-bold">
           Demande de devis <span className="text-primary">intelligente</span>

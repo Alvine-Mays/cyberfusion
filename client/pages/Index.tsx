@@ -69,10 +69,14 @@ export default function Index() {
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-xs tracking-widest uppercase text-primary mb-3 font-semibold">
             CyberFusion — Le futur technologique d’Afrique
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .05 }} className="font-heading text-4xl md:text-6xl font-extrabold leading-tight">
-            Quand la technologie <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00B4D8] to-[#FF7F11]">fusionne</span> avec vos ambitions.
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: .05 }}
+            className="font-heading text-4xl md:text-6xl font-extrabold leading-tight text-white"> 
+            Quand la technologie <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00B4D8] to-[#FF7F11]">fusionne</span>avec vos ambitions.
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .15 }} className="mt-5 max-w-2xl text-lg text-muted-foreground">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .15 }} className="mt-5 max-w-2xl text-lg text-white/85">
             <TypedText text="Chez CyberFusion Group, nous unissons innovation, proximité et éthique pour propulser vos projets." />
           </motion.p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
